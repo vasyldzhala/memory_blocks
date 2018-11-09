@@ -86,7 +86,6 @@ export default class LoginUserModal extends Modal {
       http.loginUser(user).then(resp => respHundler(resp));
     }
 
-
   }
 
   checkInput(str) {

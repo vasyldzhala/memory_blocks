@@ -16,43 +16,45 @@ export default class Modal {
 
   init() {
     const modalTemplate = `
-      <div class="modal-window ${this.params.class}">
-        <header class="fb-row fb-between">
-          ${this.params.logo}
-          <span>${this.params.title}</span>
-          <button class="close-btn">
-            ${this.params.close}
-          </button>
-        </header>
-        
-        <div class="fb-col fb-around main">
-           ${ this.params.content ? `
+<div class="modal-window ${this.params.class}">
+  <header class="fb-row fb-between">
+    ${this.params.logo}
+    <span>${this.params.title}</span>
+    <button class="close-btn">
+      ${this.params.close}
+    </button>
+  </header>
+
+  <div class="main">
+    <div class="fb-col fb-around">
+      ${ this.params.content ? `
       <div class="fb-col fb-around content">
-      $\{this.params.content}
+        ${this.params.content}
       </div>
-           ` : ''
-            }
-           <div class="confirm">
-             <form action="" name="${this.params.name}">
-                <div class="form-content">
-                  ${this.params.formContent}
-                </div>
-                <div class="form-confirm">
-                   <button class="cancel-btn">
-                      Cancel
-                   </button>
-                   <button class="confirm-btn">
-                     ${this.params.confirmBtn}
-                   </button>
-                </div>
- 
-              </form>
-           </div>
-          
-        </div>
-        
-      
+      ` : ''
+      }
+      <div class="confirm">
+        <form action="" name="${this.params.name}">
+          <div class="form-content">
+            ${this.params.formContent}
+          </div>
+          <div class="form-confirm">
+            <button class="cancel-btn">
+              Cancel
+            </button>
+            <button class="confirm-btn">
+              ${this.params.confirmBtn}
+            </button>
+          </div>
+
+        </form>
       </div>
+    </div>
+    
+  </div>
+
+
+</div>
     `;
 
     const modalEl = document.createElement('div');

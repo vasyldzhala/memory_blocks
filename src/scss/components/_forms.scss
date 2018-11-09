@@ -1,36 +1,78 @@
-.modal-window form {
-  width: 350px;
-  label, input {
-    padding: 5px;
+.login-modal {
+  width: 60%;
+  min-width: 350px;
+  height: 60%;
+  form {
+    width: 350px;
+    label, input {
+      padding: 5px;
+    }
+    input {
+      position: relative;
+      right: -55px;
+      margin-bottom: 30px;
+    }
+    .error {
+      position: relative;
+      right: 30px;
+      font-size: 14px;
+      color: red;
+    }
+    #warning {
+      right: -80px;
+      top: -10px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    label, input {
+      font-size: 18px;
+      color: get_col(modal-text);
+    }
+    input[type='text'], input[type='password'] {
+      border-bottom: 2px solid get_col(modal-text);
+    }
+    .form-confirm {
+      text-align: center;
+    }
   }
-  input {
-    position: relative;
-    right: -55px;
-    margin-bottom: 30px;
-  }
-  .error {
-    position: relative;
-    right: 30px;
-    font-size: 14px;
-    color: red;
-  }
-  #warning {
-    right: -80px;
-    top: -10px;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  label, input {
-    font-size: 18px;
-    color: get_col(modal-text);
-  }
-  input[type='text'], input[type='password'] {
-    border-bottom: 2px solid get_col(modal-text);
-  }
-  .form-confirm {
-    text-align: center;
-  }
-
-
 }
+
+
+
+.set-settings-modal {
+  width: 60%;
+  min-width: 350px;
+  height: 80%;
+  form {
+    li {
+      list-style: none;
+    }
+
+    label {
+      padding: 0 5px 2px 20px;
+      line-height: 30px;
+      font-size: 18px;
+      color: get_col(modal-text);
+      transition-duration: 0.1s;
+    }
+    label:hover {
+      border-bottom: 2px solid get_col(modal-text);
+      cursor: pointer;
+    }
+    .radiogroup {
+      margin-bottom: 40px;
+      padding: 0 20px;
+      border: 2px solid get_col(modal-text);
+      legend {
+        padding: 0 20px;
+        font-size: 20px;
+        color: get_col(modal-text);
+      }
+    }
+    .form-confirm {
+      text-align: center;
+    }
+  }
+}
+
