@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/png" href="http://mblocks.jala.in.ua/img/mblocks_favicon.png"/>
+  <title>Memory Blocks Game</title>
+
+  <link rel="stylesheet" href="app.css">
+
+</head>
+<body>
+
+  <header class="fb-row fb-around">
+
+    <div class="fb-row fb-between controls logo">
+      <img src="http://mblocks.jala.in.ua/img/mblocks_favicon.png" alt="" title="Memory Blocks Game">
+      <span>Memory Blocks Game</span>
+    </div>
+
+    <div class="fb-row fb-between controls">
+      <button title="New Game" id="new-game-button">
+        <i class="fas fa-flag-checkered"></i>
+      </button>
+      <button title="Login" id="login-button">
+        <i class="fas fa-user"></i>
+      </button>
+      <button title="Settings">
+        <i class="fas fa-sliders-h"></i>
+      </button>
+      <button title="Best Results">
+        <i class="fas fa-trophy"></i>
+      </button>
+    </div>
+
+  </header>
+
+  <main class="fb-row fb-center">
+    <div class="fb-row fb-start fb-top cards-container"
+         id="game-container"
+    >
+    </div>
+  </main>
+
+  <footer class="fb-row fb-around" id="state-bar">
+    <span class="hint">
+    </span>
+    <span class="time">
+      Time: 0 sec
+    </span>
+    <span class="score">
+      30 / 30
+    </span>
+    <span class="flipped">
+      Flipped: 0
+    </span>
+
+  </footer>
+
+</body>
+</html>

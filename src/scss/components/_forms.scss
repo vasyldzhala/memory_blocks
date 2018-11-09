@@ -1,0 +1,36 @@
+.modal-window form {
+  width: 350px;
+  label, input {
+    padding: 5px;
+  }
+  input {
+    position: relative;
+    right: -55px;
+    margin-bottom: 30px;
+  }
+  .error {
+    position: relative;
+    right: 30px;
+    font-size: 14px;
+    color: red;
+  }
+  #warning {
+    right: -80px;
+    top: -10px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  label, input {
+    font-size: 18px;
+    color: get_col(modal-text);
+  }
+  input[type='text'], input[type='password'] {
+    border-bottom: 2px solid get_col(modal-text);
+  }
+  .form-confirm {
+    text-align: center;
+  }
+
+
+}

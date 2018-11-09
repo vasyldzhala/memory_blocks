@@ -1,0 +1,15 @@
+body {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+header {
+  height: $header-height;
+}
+main {
+  height: calc(100vh - #{$header-height} - #{$footer-height});
+}
+footer {
+  height: $footer-height;
+}

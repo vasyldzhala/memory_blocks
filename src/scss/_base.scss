@@ -1,0 +1,11 @@
+body {
+  overflow: hidden;
+}
+a {
+  text-decoration: none;
+}
+button, button:focus, input, input:focus, a, a:focus {
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+}
