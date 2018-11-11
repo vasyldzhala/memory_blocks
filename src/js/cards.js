@@ -14,7 +14,7 @@ export const cards = [
   'f0ac',
   'f5d1',
   'f1bb',
-  'f18c',
+  'f72f',
   'f564',
   'f55f',
   'f523',
@@ -22,6 +22,10 @@ export const cards = [
   'f1b0',
   'f717',
   'f6b7',
-  'f379',
+  'f6bb',
   'f458'
+];
+
+export const fieldsize = [
+  8, 15, 24
 ];

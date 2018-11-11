@@ -18,7 +18,7 @@ export default class LoginUserModal extends Modal {
 </span><br>
 <label for="isNewUser">New User</label>
 <input type="checkbox" name="isNewUser"><br>
-<span class="error" id="warning"></span>
+<span class="error warning" id="warning"></span>
 
     `;
 
@@ -36,10 +36,10 @@ export default class LoginUserModal extends Modal {
 
     super(paramsAll);
     super.init();
-    this.setFormEventHundlers();
+    this.setFormEventHandlers();
   }
 
-  setFormEventHundlers() {
+  setFormEventHandlers() {
     this.confirmBtn = this.modalEl.querySelector('.confirm-btn');
     this.confirmBtn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -59,7 +59,7 @@ export default class LoginUserModal extends Modal {
     console.log(user);
     console.log(document.forms.loginUserForm.isNewUser.checked);
 
-    const respHundler = resp => {
+    const respHandler = resp => {
       typeof resp === 'object' ?
         generateUserLoginEvent(resp) :
         showWarning(resp);
@@ -81,9 +81,9 @@ export default class LoginUserModal extends Modal {
     const http = new Http();
 
     if ( document.forms.loginUserForm.isNewUser.checked ) {
-      http.addUser(user).then(resp => respHundler(resp));
+      http.addUser(user).then(resp => respHandler(resp));
     } else  {
-      http.loginUser(user).then(resp => respHundler(resp));
+      http.loginUser(user).then(resp => respHandler(resp));
     }
 
   }

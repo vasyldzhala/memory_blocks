@@ -1,7 +1,9 @@
 .login-modal {
   width: 60%;
   min-width: 350px;
+  max-width: 600px;
   height: 60%;
+
   form {
     width: 350px;
     label, input {
@@ -18,7 +20,7 @@
       font-size: 14px;
       color: red;
     }
-    #warning {
+    .warning {
       right: -80px;
       top: -10px;
       font-size: 16px;
@@ -43,7 +45,8 @@
 .set-settings-modal {
   width: 60%;
   min-width: 350px;
-  height: 80%;
+  max-width: 600px;
+  height: 70%;
   form {
     li {
       list-style: none;
@@ -74,5 +77,32 @@
       text-align: center;
     }
   }
+}
+
+.game-over-modal {
+  width: 60%;
+  min-width: 350px;
+  max-width: 600px;
+  height: 60%;
+  form {
+    .form-content {
+      margin-bottom: 40px;
+    }
+    label {
+      font-size: 18px;
+      color: get_col(modal-text);
+    }
+    .warning {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: red;
+    }
+  }
+}
+
+.best-results-modal {
+  min-width: 350px;
+  
 }
 

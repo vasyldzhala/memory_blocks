@@ -1,19 +1,53 @@
 main {
   background-color: get_col(main-bg);
   .cards-container {
+    @extend .fb-row, .fb-start, .fb-top;
     box-sizing: border-box;
     height: 100%;
-    width: calc((100vh - #{$header-height} - #{$footer-height}) * 6 / 5);
     padding: 10px;
     @media (max-aspect-ratio: 1/1) {
       width: 100%;
-      height: calc((100vw) * 5 / 6);
     }
   }
+
+  .fieldsize1 {
+    width: calc((100vh - #{$header-height} - #{$footer-height}) * 4 / 4);
+    padding: 10px;
+    @media (max-aspect-ratio: 1/1) {
+      height: calc((100vw) * 4 / 4);
+    }
+    .card {
+      width: 25%;
+      height: 25%;
+    }
+  }
+
+  .fieldsize2 {
+    width: calc((100vh - #{$header-height} - #{$footer-height}) * 6 / 5);
+    padding: 10px;
+    @media (max-aspect-ratio: 1/1) {
+      height: calc((100vw) * 5 / 6);
+    }
+    .card {
+      width: 16.66%;
+      height: 20%;
+    }
+  }
+
+  .fieldsize3 {
+    width: calc((100vh - #{$header-height} - #{$footer-height}) * 8 / 6);
+    padding: 10px;
+    @media (max-aspect-ratio: 1/1) {
+      height: calc((100vw) * 6 / 8);
+    }
+    .card {
+      width: 12.5%;
+      height: 16.66%;
+    }
+  }
+
   .card {
     box-sizing: border-box;
-    height: 20%;
-    width: 16.66%;
     padding: 1.5vh;
     @media (max-aspect-ratio: 1/1) {
       padding: 1.5vw;

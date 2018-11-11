@@ -1,7 +1,6 @@
 export default class Http {
 
   constructor(params) {
-    // this.baseUrl = 'http://localhost:80/camp1/mblocks/db';
     this.baseUrl = 'http://mblocks.jala.in.ua/db';
   };
 
@@ -13,7 +12,6 @@ export default class Http {
       }
       console.log(`ajaxRequest, method=${method}, url=${url}`);
       req.open(method, url, true);
-      // req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       req.addEventListener('load', () => {
         if ( req.status === 200 ) {
           resolve(req.response);
@@ -63,20 +61,10 @@ export default class Http {
       )
   }
 
-  saveResult(sendData) {
-    this.ajaxRequest('GET', `${this.baseUrl}/saveresult.php`, sendData)
-      .then(
-        respValue => {
-          console.log(`Response = ${respValue}`);
-          const resultsAreSavedEvent = new CustomEvent("resultsAreSaved", {
-            bubbles: true,
-            detail: respValue
-          });
-          document.dispatchEvent(resultsAreSavedEvent);
-         },
-        reason => {
-          console.log(`Rejected: ${reason}`);
-        }
-      );
+  saveResult(result) {
+    return this.ajaxRequest('GET', `${this.baseUrl}/saveresult.php`, result)
+      .then(resp => console.log(resp),
+        reason => console.log(`Rejected: ${reason}`)
+      )
   }
 }

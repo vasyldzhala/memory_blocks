@@ -2,14 +2,22 @@ import Modal from './modal';
 
 export default class GameOverModal extends Modal {
 
-  constructor(params) {
+  constructor(params, user) {
+
+    const formContent = `
+<label for="isSaveResult">Save results</label>
+<input type="checkbox" name="isSaveResult"><br>
+<span class="warning" hidden>for save results you have to be checked in</span><br>    
+    `;
+
     const defaultParams = {
-      name: 'gameOver',
+      name: 'gameOverForm',
       class: 'game-over-modal',
       logo: '<i class="fas fa-award"></i>',
       close: '<i class="far fa-times-circle"></i>',
       title: 'Congratulations! The Game Is Over!',
       content: '',
+      formContent: formContent,
       confirmBtn: 'Start New Game!'
     };
 
@@ -18,7 +26,17 @@ export default class GameOverModal extends Modal {
     super(paramsAll);
 
     super.init();
+
+    this.setFormHandler(user);
+
   }
+
+  setFormHandler(user) {
+    if ( !user.id ) {
+      this.modalEl.querySelector('.warning').hidden = false;
+      this.modalEl.querySelector('input[type="checkbox"]').disabled = true;
+    }
+  };
 
   static parseResults(results) {
     return `

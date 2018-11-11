@@ -48,7 +48,7 @@ export default class SetSettingsModal extends Modal {
       class: 'set-settings-modal',
       logo: '<i class="fas fa-sliders-h"></i>',
       close: '<i class="far fa-times-circle"></i>',
-      title: 'Set Game',
+      title: 'Settings',
       formContent: formContent,
       confirmBtn: 'OK'
     };
@@ -57,10 +57,10 @@ export default class SetSettingsModal extends Modal {
 
     super(paramsAll);
     super.init();
-    this.setFormEventHundlers(gameSettings);
+    this.setFormEventHandlers(gameSettings);
   }
 
-  setFormEventHundlers(gameSettings) {
+  setFormEventHandlers(gameSettings) {
     this.modalEl.querySelector(`#fieldSizeId${gameSettings.fieldsizeId}`).checked = true;
     this.modalEl.querySelector(`#opponentId${gameSettings.opponentId}`).checked = true;
 
@@ -70,7 +70,6 @@ export default class SetSettingsModal extends Modal {
         detail: settings
       });
       document.dispatchEvent(setGameSettingsEvent);
-
     };
 
     this.confirmBtn = this.modalEl.querySelector('.confirm-btn');

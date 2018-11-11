@@ -1,4 +1,5 @@
 import {cards} from "./cards";
+import {fieldsize} from "./cards";
 
 export default class Game {
 
@@ -8,20 +9,23 @@ export default class Game {
 
   startNewGame(params) {
     this.defaultParams = {
-      cardsNumber: 15,
+      cardsNumber: fieldsize[params.fieldsizeId - 1],
       playersNumber: 1,
       gameContainer: document.querySelector('#game-container'),
       stateBarContainer: document.querySelector('#state-bar')
     };
     this.params = Object.assign(this.defaultParams, params);
+
+    this.params.gameContainer.className = `cards-container fieldsize${this.params.fieldsizeId}`;
+
     this.init();
     this.params.gameContainer.addEventListener('click', e => {
       e.preventDefault();
-      this.clickCardHundler(e);
+      this.clickCardHandler(e);
     });
   };
 
-  clickCardHundler({target}) {
+  clickCardHandler({target}) {
 
     if (target.hasAttribute('data-code') && !target.classList.contains('show')) {
 
@@ -58,7 +62,7 @@ export default class Game {
             this.state.openCards.forEach(el => el.classList.add('close'));
             this.state.score--;
             this.state.messageInd = 3;
-            if (this.state.score <= 0 ) {
+            if (this.state.score <= 14 ) {
               this.state.isGameProceed = false;
               this.gameOver();
             }
