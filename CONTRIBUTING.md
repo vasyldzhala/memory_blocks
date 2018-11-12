@@ -7,16 +7,14 @@ submitting bug reports or writing code which can be incorporated into Memory Blo
 
 ## How to start
 
-If you want to do something [search the issue tracker][https://github.com/vasyldzhala/memory_blocks/issues] to see if
+If you want to do something [search the issue tracker](https://github.com/vasyldzhala/memory_blocks/issues) to see if
 someone else in the community has already created a ticket. If not, go ahead and
 make new issue.
 
 ### Fork repository & create a branch
 
 If this is something you think you can fix, then fork Memory Blocks Game and
-create a branch with a descriptive name which contains issue #.
-
-For instance:
+create a branch with a descriptive name which contains issue #. For instance:
 
 ```sh
 git checkout -b 01-add-user-help
@@ -24,11 +22,12 @@ git checkout -b 01-add-user-help
 
 ### Install repository 
 
-Go follow README.md to install and deploy Memory Block Games
+Go follow [README.md](https://github.com/vasyldzhala/memory_blocks/blob/master/readme.md) 
+to install and deploy Memory Block Games App.
 
 ### If you find a bug
 
-* **Ensure the bug was not already reported** by [searching all issues][https://github.com/vasyldzhala/memory_blocks/issues].
+* **Ensure the bug was not already reported** by [searching all issues](https://github.com/vasyldzhala/memory_blocks/issues).
 
 * If you're sure open new issue addressing the problem, include a **title and clear
   description**, as much relevant information as possible, and a **code sample**
@@ -49,7 +48,7 @@ git rebase master
 git push origin 01-add-user-help
 ```
 
-Finally, go to GitHub and [make a Pull Request][]
+Finally, go to GitHub and make a [Pull Request](https://github.com/vasyldzhala/memory_blocks/pulls)
 
 ### Keeping your Pull Request updated
 
