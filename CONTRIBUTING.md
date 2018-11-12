@@ -7,13 +7,13 @@ submitting bug reports or writing code which can be incorporated into Memory Blo
 
 ## How to start
 
-If you've noticed a bug or have a question, [search the issue tracker][] to see if
+If you want to do something [search the issue tracker][https://github.com/vasyldzhala/memory_blocks/issues] to see if
 someone else in the community has already created a ticket. If not, go ahead and
-[make one][new issue]!
+make new issue.
 
 ### Fork repository & create a branch
 
-If this is something you think you can fix, then [fork Memory Blocks Game][] and
+If this is something you think you can fix, then fork Memory Blocks Game and
 create a branch with a descriptive name which contains issue #.
 
 For instance:
@@ -28,10 +28,9 @@ Go follow README.md to install and deploy Memory Block Games
 
 ### If you find a bug
 
-* **Ensure the bug was not already reported** by [searching all issues][].
+* **Ensure the bug was not already reported** by [searching all issues][https://github.com/vasyldzhala/memory_blocks/issues].
 
-* If you're unable to find an open issue addressing the problem,
-  [open a new one][new issue]. Be sure to include a **title and clear
+* If you're sure open new issue addressing the problem, include a **title and clear
   description**, as much relevant information as possible, and a **code sample**
   or an **executable test case** demonstrating the expected behavior that is not
   occurring.
@@ -56,9 +55,6 @@ Finally, go to GitHub and [make a Pull Request][]
 
 If a lot of code has changed you have to "rebase" your PR , and that you need to update your branch 
 so it's easier to merge.
-
-To learn more about rebasing in Git, there are a lot of [good][git rebasing]
-[resources][interactive rebase] but here's the suggested workflow:
 
 ```sh
 git checkout 01-add-user-help
