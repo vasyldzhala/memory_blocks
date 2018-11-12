@@ -56,3 +56,19 @@
 
 
 </div>
+
+<div class="results-table-container">
+  <h3>Best time:</h3>
+  <table class="results-table">
+    <tr>
+      <th>Name</th>
+      <th>Time</th>
+      <th>Flips</th>
+    </tr>
+    <tr>
+      <td>${getNameById(results[i].user_id)}</td>
+      <td>${(results[i].time * 1e-3).toFixed(2)}</td>
+      <td>${results[i].flips}</td>
+    </tr>
+  </table>
+</div>

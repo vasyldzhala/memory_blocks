@@ -1,16 +1,15 @@
 export default class Http {
 
-  constructor(params) {
+  constructor () {
     this.baseUrl = 'http://mblocks.jala.in.ua/db';
-  };
+  }
 
-  ajaxRequest(method, url, sendData = null) {
+  ajaxRequest (method, url, sendData = null) {
     return new Promise( (resolve, reject) => {
       const req = new XMLHttpRequest();
       if (( method === 'GET' ) && !( sendData === null)) {
         url = `${url}?jsonData=${JSON.stringify(sendData)}`;
       }
-      console.log(`ajaxRequest, method=${method}, url=${url}`);
       req.open(method, url, true);
       req.addEventListener('load', () => {
         if ( req.status === 200 ) {
@@ -22,49 +21,41 @@ export default class Http {
         }
       }, false);
       req.addEventListener('error', () => {
-        reject(new Error("Network Error"));
+        reject(new Error('Network Error'));
       }, false);
       if (( method === 'POST' ) && !( sendData === null ))  {
         req.send(`jsonData=${JSON.stringify(sendData)}`);
-        console.log(`sendData = ${JSON.stringify(sendData)}`);
       } else {
         req.send();
       }
     });
   }
 
-  loadResources(script) {
+  loadResources (script) {
     return this.ajaxRequest('GET', `${this.baseUrl}/${script}`)
-      .then(resp => JSON.parse(resp),
-            reason => console.log(`Rejected: ${reason}`)
-      )
+      .then(resp => JSON.parse(resp), reason => reason);
   }
-  loadAllResults() {
+
+  loadAllResults () {
     return this.loadResources('readresults.php');
   }
 
-  loadAllUsers() {
+  loadAllUsers () {
     return this.loadResources('readusers.php');
   }
 
-  addUser(user) {
+  addUser (user) {
     return this.ajaxRequest('GET', `${this.baseUrl}/adduser2.php`, user)
-      .then(resp => JSON.parse(resp),
-        reason => console.log(`Rejected: ${reason}`)
-      )
+      .then(resp => JSON.parse(resp), reason => reason );
   }
 
-  loginUser(user) {
+  loginUser (user) {
     return this.ajaxRequest('GET', `${this.baseUrl}/confirmuser.php`, user)
-      .then(resp => JSON.parse(resp),
-        reason => console.log(`Rejected: ${reason}`)
-      )
+      .then(resp => JSON.parse(resp), reason => reason);
   }
 
-  saveResult(result) {
+  saveResult (result) {
     return this.ajaxRequest('GET', `${this.baseUrl}/saveresult.php`, result)
-      .then(resp => console.log(resp),
-        reason => console.log(`Rejected: ${reason}`)
-      )
+      .then(resp => resp, reason => reason);
   }
 }

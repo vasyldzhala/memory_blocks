@@ -1,6 +1,6 @@
 export default class Modal {
 
-  constructor(params) {
+  constructor (params) {
     this.defaultParams = {
       name: '',
       class: '',
@@ -14,7 +14,7 @@ export default class Modal {
     this.params = Object.assign(this.defaultParams, params);
   }
 
-  init() {
+  init () {
     const modalTemplate = `
 <div class="modal-window ${this.params.class}">
   <header class="fb-row fb-between">
@@ -31,8 +31,7 @@ export default class Modal {
       <div class="fb-col fb-around content">
         ${this.params.content}
       </div>
-      ` : ''
-      }
+      ` : ''}
       <div class="confirm">
         <form action="" name="${this.params.name}">
           <div class="form-content">
@@ -76,7 +75,7 @@ export default class Modal {
 
   }
 
-  closeModal(el) {
+  closeModal (el) {
     document.querySelector('body').removeChild(el);
   }
 

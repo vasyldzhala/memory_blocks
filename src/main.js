@@ -17,13 +17,8 @@ const gameSettings = {
 
 const game = new Game(gameSettings);
 
-// const http = new Http();
-// http.loadAllResults().then(resp => console.log(resp));
-// http.loadAllUsers().then(resp => console.log(resp));
-
-
 document.addEventListener('gameIsOver', event => {
-  event.preventDefault()
+  event.preventDefault();
   gameOverHandler(event.detail);
 });
 
@@ -59,7 +54,7 @@ document.addEventListener('setGameSettings', event => {
   startNewGame(gameSettings);
 });
 
-const startNewGame = (gameSettings) => {
+const startNewGame = gameSettings => {
   game.startNewGame(gameSettings);
 };
 
@@ -72,23 +67,22 @@ const loginUserEventHandler = resp => {
   document.querySelector('#login-button').innerHTML = `
     <i class="fas fa-user-check"></i>
     <span>${user.name}</span>        
-`
+`;
 };
 
 const loginUserHandler = user => {
-  const loginUserModal = new LoginUserModal({}, user);
+  const loginUserModal = new LoginUserModal();
 };
 
-const gameOverHandler = (results) => {
+const gameOverHandler = results => {
   const message = GameOverModal.parseResults(results);
   message.concat(' ');
 
   const modal = new GameOverModal({content: message}, user);
 
-  document.querySelector('.confirm-btn').addEventListener('click', (event) => {
+  document.querySelector('.confirm-btn').addEventListener('click', event => {
     event.preventDefault();
     if ( document.forms.gameOverForm.isSaveResult.checked ) {
-      console.log(user, gameSettings, results);
       const sendData = {
         user_id: user.id,
         fieldsize_id: gameSettings.fieldsizeId,
@@ -96,10 +90,8 @@ const gameOverHandler = (results) => {
         time: results.endTime - results.startTime,
         flips: results.flipped
       };
-      console.log(sendData);
       const http = new Http();
       http.saveResult(sendData);
-      console.log('Save my results!');
     }
     startNewGame(gameSettings);
     modal.closeModal(modal.modalEl);

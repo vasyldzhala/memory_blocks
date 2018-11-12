@@ -3,7 +3,7 @@ import Http from './http';
 
 export default class LoginUserModal extends Modal {
 
-  constructor(params, user) {
+  constructor (params) {
 
     const formContent = `
 <label for="userLogin">Login:</label><br>
@@ -39,25 +39,23 @@ export default class LoginUserModal extends Modal {
     this.setFormEventHandlers();
   }
 
-  setFormEventHandlers() {
+  setFormEventHandlers () {
     this.confirmBtn = this.modalEl.querySelector('.confirm-btn');
-    this.confirmBtn.addEventListener('click', (e) => {
+    this.confirmBtn.addEventListener('click', e => {
       e.preventDefault();
       this.login();
     });
     this.modalEl.querySelectorAll('.text-input').forEach( el => {
-      el.addEventListener('blur', (e) => {
+      el.addEventListener('blur', e => {
         e.target.nextSibling.nextSibling.hidden = this.checkInput(e.target.value);
-      })
-    })
+      });
+    });
   }
 
-  login() {
+  login () {
     const user = {};
     user.name = document.forms.loginUserForm.userLogin.value;
     user.password = document.forms.loginUserForm.userPassword.value;
-    console.log(user);
-    console.log(document.forms.loginUserForm.isNewUser.checked);
 
     const respHandler = resp => {
       typeof resp === 'object' ?
@@ -88,7 +86,7 @@ export default class LoginUserModal extends Modal {
 
   }
 
-  checkInput(str) {
+  checkInput (str) {
     return /^[0-9a-zA-Zа-яієїА-ЯЄЇІ]+$/u.test(str);
   }
 }

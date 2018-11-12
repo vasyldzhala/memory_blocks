@@ -103,6 +103,20 @@
 
 .best-results-modal {
   min-width: 350px;
-  
+  .results-table {
+    width: 350px;
+    margin-bottom: 20px;
+    th, td {
+      padding: 3px;
+      text-align: left;
+    }
+    th {
+      border-bottom: 1px solid get_col(text-modal);
+    }
+    .user-own-res {
+      color: get_col(header-text);
+    }
+  }
+
 }
 

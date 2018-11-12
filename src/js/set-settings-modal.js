@@ -2,7 +2,7 @@ import Modal from './modal';
 
 export default class SetSettingsModal extends Modal {
 
-  constructor(params, gameSettings) {
+  constructor (params, gameSettings) {
 
     const formContent = `
 <fieldset class="radiogroup">
@@ -60,7 +60,7 @@ export default class SetSettingsModal extends Modal {
     this.setFormEventHandlers(gameSettings);
   }
 
-  setFormEventHandlers(gameSettings) {
+  setFormEventHandlers (gameSettings) {
     this.modalEl.querySelector(`#fieldSizeId${gameSettings.fieldsizeId}`).checked = true;
     this.modalEl.querySelector(`#opponentId${gameSettings.opponentId}`).checked = true;
 
@@ -75,8 +75,10 @@ export default class SetSettingsModal extends Modal {
     this.confirmBtn = this.modalEl.querySelector('.confirm-btn');
     this.confirmBtn.addEventListener('click', e => {
       e.preventDefault();
-      gameSettings.fieldsizeId = parseInt(this.modalEl.querySelector('input[name="fieldSizeId"]:checked').value);
-      gameSettings.opponentId = parseInt(this.modalEl.querySelector('input[name="opponentId"]:checked').value);
+      const fielsizeValue = this.modalEl.querySelector('input[name="fieldSizeId"]:checked').value;
+      gameSettings.fieldsizeId = parseInt(fielsizeValue);
+      const opponentValue = this.modalEl.querySelector('input[name="opponentId"]:checked').value;
+      gameSettings.opponentId = parseInt(opponentValue);
       generateSetGameSettingsEvent(gameSettings);
       this.closeModal(this.modalEl);
     });

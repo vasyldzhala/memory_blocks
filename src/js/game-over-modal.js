@@ -2,7 +2,7 @@ import Modal from './modal';
 
 export default class GameOverModal extends Modal {
 
-  constructor(params, user) {
+  constructor (params, user) {
 
     const formContent = `
 <label for="isSaveResult">Save results</label>
@@ -31,14 +31,14 @@ export default class GameOverModal extends Modal {
 
   }
 
-  setFormHandler(user) {
+  setFormHandler (user) {
     if ( !user.id ) {
       this.modalEl.querySelector('.warning').hidden = false;
       this.modalEl.querySelector('input[type="checkbox"]').disabled = true;
     }
-  };
+  }
 
-  static parseResults(results) {
+  static parseResults (results) {
     return `
 <h3>
   Your results are: 

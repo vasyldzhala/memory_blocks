@@ -1,13 +1,13 @@
-import {cards} from "./cards";
-import {fieldsize} from "./cards";
+import {cards} from './cards';
+import {fieldsize} from './cards';
 
 export default class Game {
 
-  constructor(params) {
+  constructor (params) {
     this.startNewGame(params);
-  };
+  }
 
-  startNewGame(params) {
+  startNewGame (params) {
     this.defaultParams = {
       cardsNumber: fieldsize[params.fieldsizeId - 1],
       playersNumber: 1,
@@ -23,9 +23,9 @@ export default class Game {
       e.preventDefault();
       this.clickCardHandler(e);
     });
-  };
+  }
 
-  clickCardHandler({target}) {
+  clickCardHandler ({target}) {
 
     if (target.hasAttribute('data-code') && !target.classList.contains('show')) {
 
@@ -35,11 +35,11 @@ export default class Game {
         this.state.openCards.push(target);
         this.state.flipped++;
       };
-      const getCardCode = (ind) => {
+      const getCardCode = ind => {
         return this.state.openCards[ind].dataset.code;
       };
 
-      switch(this.state.stage)  {
+      switch (this.state.stage)  {
         case 0:
           this.state.isGameProceed = true;
           this.setTimer();
@@ -62,7 +62,7 @@ export default class Game {
             this.state.openCards.forEach(el => el.classList.add('close'));
             this.state.score--;
             this.state.messageInd = 3;
-            if (this.state.score <= 14 ) {
+            if ( this.state.score <= 0 ) {
               this.state.isGameProceed = false;
               this.gameOver();
             }
@@ -73,7 +73,7 @@ export default class Game {
     }
   }
 
-  init() {
+  init () {
     this.state = {
       isGameProceed: false,
       isMessage: false,
@@ -95,25 +95,26 @@ export default class Game {
       scoreEl: this.params.stateBarContainer.querySelector('.score'),
       flippedEl: this.params.stateBarContainer.querySelector('.flipped')
     };
-    if ( !this.state.isMessage ) { this.rend.messageEl.hidden = true; }
-    this.rend.timeEl.innerHTML = `Time: 0 sec`;
+    if ( !this.state.isMessage ) {
+      this.rend.messageEl.hidden = true;
+    }
+    this.rend.timeEl.innerHTML = 'Time: 0 sec';
     this.showState();
     this.dealCards();
   }
 
-  showState() {
+  showState () {
     this.rend.messageEl.innerHTML = this.showMessage(this.state.messageInd);
-    this.rend.scoreEl.innerHTML = `${(this.params.cardsNumber - this.state.score) * 2} / ${this.params.cardsNumber * 2}`;
+    this.rend.scoreEl.innerHTML = `${(this.params.cardsNumber - this.state.score) * 2}
+      / ${this.params.cardsNumber * 2}`;
     this.rend.flippedEl.innerHTML = `Flipped: ${this.state.flipped}`;
   }
 
-  showMessage(ind) {
-    let str = '';
-    if (this.state.isMessage) { str += this.state.gameMessage[ind]; }
-    return str;
+  showMessage (ind) {
+    return this.state.isMessage ? this.state.gameMessage[ind] : '';
   }
 
-  setTimer() {
+  setTimer () {
     this.state.startTime = Date.now();
     const showSeconds = () => {
       const seconds = ((Date.now() - this.state.startTime) * 1e-3).toFixed();
@@ -124,13 +125,12 @@ export default class Game {
     this.state.timer = setInterval(showSeconds, 1000);
   }
 
-  stopTimer() {
-    console.log('stop timer!');
+  stopTimer () {
     this.state.endTime = Date.now();
     clearInterval(this.state.timer);
   }
 
-  gameOver() {
+  gameOver () {
     this.stopTimer();
     const gameIsOverEvent = new CustomEvent('gameIsOver', {
       bubbles: true,
@@ -139,14 +139,14 @@ export default class Game {
     document.dispatchEvent(gameIsOverEvent);
   }
 
-  dealCards() {
+  dealCards () {
     const { gameContainer } = this.params;
     let cardsMixed = cards.slice(0, this.params.cardsNumber);
     cardsMixed = cardsMixed
       .concat(cardsMixed)
-      .sort((x, y) => Math.random() - 0.5);
+      .sort(() => Math.random() - 0.5);
 
-    let gameTemplate = ``;
+    let gameTemplate = '';
 
     for (let i = 0; i < cardsMixed.length; i++) {
       gameTemplate += `
@@ -160,4 +160,4 @@ export default class Game {
     gameContainer.innerHTML = gameTemplate;
   }
 
-};
+}
