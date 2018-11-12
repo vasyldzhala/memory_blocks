@@ -7,3 +7,9 @@ node_js:
 branches:
   only:
     - master
+
+deploy:
+  provider: heroku
+  app: memory-blocks
+  api_key:
+    secure: f4a17419-9d6c-4618-953f-af380e85db93
