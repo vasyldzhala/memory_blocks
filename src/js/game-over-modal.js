@@ -15,7 +15,7 @@ export default class GameOverModal extends Modal {
       class: 'game-over-modal',
       logo: '<i class="fas fa-award"></i>',
       close: '<i class="far fa-times-circle"></i>',
-      title: 'Congratulations! The Game Is Over!',
+      title: 'Congratulations!',
       content: '',
       formContent: formContent,
       confirmBtn: 'Start New Game!'
@@ -43,9 +43,8 @@ export default class GameOverModal extends Modal {
 <h3>
   Your results are: 
 </h3>
-<p>Time: ${((results.endTime - results.startTime) * 1e-3).toFixed(2)}</p>
-<p>Total flips: ${results.flipped}</p>
-  
+<p>Time: ${((results.endTime - results.startTime) * 1e-3).toFixed(2)}   
+Total flips: ${results.flipped}</p>
   `;
 
   }

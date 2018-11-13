@@ -23,7 +23,7 @@ export default class SetSettingsModal extends Modal {
   </ul>
 </fieldset>
 
-<fieldset class="radiogroup">
+<fieldset class="radiogroup" hidden>
   <legend>Who is the opponent?</legend>
   <ul class="radio">
     <li>

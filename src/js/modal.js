@@ -25,10 +25,10 @@ export default class Modal {
     </button>
   </header>
 
-  <div class="main">
-    <div class="fb-col fb-around">
+  <div class="main-container">
+    <div class="fb-col fb-start main">
       ${ this.params.content ? `
-      <div class="fb-col fb-around content">
+      <div class="fb-col fb-start content">
         ${this.params.content}
       </div>
       ` : ''}

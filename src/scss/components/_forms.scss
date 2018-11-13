@@ -2,7 +2,6 @@
   width: 60%;
   min-width: 350px;
   max-width: 600px;
-  height: 60%;
 
   form {
     width: 350px;
@@ -12,7 +11,7 @@
     input {
       position: relative;
       right: -55px;
-      margin-bottom: 30px;
+      margin-bottom: 15px;
     }
     .error {
       position: relative;
@@ -46,7 +45,6 @@
   width: 60%;
   min-width: 350px;
   max-width: 600px;
-  height: 70%;
   form {
     li {
       list-style: none;
@@ -83,10 +81,9 @@
   width: 60%;
   min-width: 350px;
   max-width: 600px;
-  height: 60%;
   form {
     .form-content {
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
     label {
       font-size: 18px;
@@ -105,7 +102,7 @@
   min-width: 350px;
   max-width: 700px;
   .results-table {
-    width: 350px;
+    width: 320px;
     margin-bottom: 20px;
     th, td {
       padding: 3px;

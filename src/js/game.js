@@ -40,6 +40,10 @@ export default class Game {
         return this.state.openCards[ind].dataset.code;
       };
 
+      const closeCard = (el, delay) => {
+        setTimeout(() => el.classList.add('close'), delay);
+      };
+
       switch (this.state.stage)  {
         case 0:
           this.state.isGameProceed = true;
@@ -60,7 +64,7 @@ export default class Game {
           this.state.stage = 1;
           this.state.messageInd = 2;
           if (getCardCode(0) === getCardCode(1)) {
-            this.state.openCards.forEach(el => el.classList.add('close'));
+            this.state.openCards.forEach(el => closeCard(el, 500));
             this.state.score--;
             this.state.messageInd = 3;
             if ( this.state.score <= 0 ) {
