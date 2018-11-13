@@ -19,6 +19,7 @@ export default class Game {
     this.params.gameContainer.className = `cards-container fieldsize${this.params.fieldsizeId}`;
 
     this.init();
+
     this.params.gameContainer.addEventListener('click', e => {
       e.preventDefault();
       this.clickCardHandler(e);
