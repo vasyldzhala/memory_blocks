@@ -28,7 +28,7 @@ export default class Game {
 
   clickCardHandler ({target}) {
 
-    if (target.hasAttribute('data-code') && !target.classList.contains('show')) {
+    if (target.hasAttribute('data-ischecked') && !target.classList.contains('show')) {
 
       const flipCard = () => {
         target.classList.toggle('show');
@@ -37,7 +37,7 @@ export default class Game {
         this.state.flipped++;
       };
       const getCardCode = ind => {
-        return this.state.openCards[ind].dataset.code;
+        return this.state.openCards[ind].childNodes[1].textContent;
       };
 
       const closeCard = (el, delay) => {
@@ -156,7 +156,7 @@ export default class Game {
     for (let i = 0; i < cardsMixed.length; i++) {
       gameTemplate += `
       <div class="card">
-        <button data-code="${cardsMixed[i]}" data-ischecked="false">
+        <button data-ischecked="false">
           <i class="fas">&#x${cardsMixed[i]};</i>
         </button>
       </div>      

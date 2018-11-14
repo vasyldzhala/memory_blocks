@@ -18,7 +18,7 @@ export default class GameOverModal extends Modal {
       title: 'Congratulations!',
       content: '',
       formContent: formContent,
-      confirmBtn: 'Start New Game!'
+      confirmBtn: 'OK'
     };
 
     const paramsAll = Object.assign(defaultParams, params);
